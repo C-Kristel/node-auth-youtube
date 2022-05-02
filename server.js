@@ -1,3 +1,7 @@
+'use strict'
+ 
+require('make-promises-safe')
+
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -8,7 +12,7 @@ const jwt = require('jsonwebtoken')
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
-mongoose.connect('mongodb://localhost:27017/login-app-db', {
+mongoose.connect('mongodb+srv://Allstar:ASCICMS@cluster0.tr7jl.mongodb.net/Strawberry_Monitoring', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true
