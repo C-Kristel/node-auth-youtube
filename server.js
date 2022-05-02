@@ -57,19 +57,20 @@ app.post('/api/change-password', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
-	const { username, password } = req.body
-	const user = await User.findOne({ username }).lean()
+	const {email, username, password } = req.body
+	const user = await User.findOne({ email, username }).lean() 
 
 	if (!user) {
 		return res.json({ status: 'error', error: 'Invalid username/password' })
 	}
 
-	if (await bcrypt.compare(password, user.password)) {
+	if (await bcrypt.compare(password, user.password, user.password)) {
 		// the username, password combination is successful
 
 		const token = jwt.sign(
 			{
 				id: user._id,
+				email: user.email,
 				username: user.username
 			},
 			JWT_SECRET
@@ -78,12 +79,18 @@ app.post('/api/login', async (req, res) => {
 		return res.json({ status: 'ok', data: token })
 	}
 
+
+
 	res.json({ status: 'error', error: 'Invalid username/password' })
 })
 
 app.post('/api/register', async (req, res) => {
-	const { username, password: plainTextPassword } = req.body
+	const { email, username, password: plainTextPassword } = req.body
 
+	if (!email || typeof email !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid email' })
+	}
+	
 	if (!username || typeof username !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid username' })
 	}
@@ -103,6 +110,7 @@ app.post('/api/register', async (req, res) => {
 
 	try {
 		const response = await User.create({
+			email,
 			username,
 			password
 		})
@@ -110,7 +118,7 @@ app.post('/api/register', async (req, res) => {
 	} catch (error) {
 		if (error.code === 11000) {
 			// duplicate key
-			return res.json({ status: 'error', error: 'Username already in use' })
+			return res.json({ status: 'error', error: 'Username/Email already in use' })
 		}
 		throw error
 	}

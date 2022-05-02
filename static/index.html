@@ -8,6 +8,7 @@
 	<body>
 		<h1>Registration</h1>
 		<form id="reg-form">
+			<input type="text" autocomplete="off" id="email" placeholder="Email" />
 			<input type="text" autocomplete="off" id="username" placeholder="Username" />
 			<input type="password" autocomplete="off" id="password" placeholder="Password" />
 			<input type="submit" value="Submit Form" />
@@ -19,6 +20,7 @@
 
 			async function registerUser(event) {
 				event.preventDefault()
+				const email = document.getElementById('email').value
 				const username = document.getElementById('username').value
 				const password = document.getElementById('password').value
 
@@ -28,6 +30,7 @@
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
+						email,
 						username,
 						password
 					})
