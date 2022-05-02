@@ -22,6 +22,8 @@ const app = express()
 app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json())
 
+// Start User
+
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
 
@@ -57,14 +59,14 @@ app.post('/api/change-password', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
-	const {email, username, password } = req.body
-	const user = await User.findOne({ email, username }).lean() 
+	const { email, username, password } = req.body
+	const user = await User.findOne({ username }).lean() 
 
 	if (!user) {
 		return res.json({ status: 'error', error: 'Invalid username/password' })
 	}
 
-	if (await bcrypt.compare(password, user.password, user.password)) {
+	if (bcrypt.compare(password, user.password)) {
 		// the username, password combination is successful
 
 		const token = jwt.sign(
@@ -78,8 +80,6 @@ app.post('/api/login', async (req, res) => {
 
 		return res.json({ status: 'ok', data: token })
 	}
-
-
 
 	res.json({ status: 'error', error: 'Invalid username/password' })
 })
@@ -125,6 +125,8 @@ app.post('/api/register', async (req, res) => {
 
 	res.json({ status: 'ok' })
 })
+
+// End User
 
 app.listen(9999, () => {
 	console.log('Server up at 9999')
