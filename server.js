@@ -9,10 +9,13 @@ const mongoose = require('mongoose')
 const User = require('./model/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+require('dotenv/config')
+const JWT_SECRET = process.env.Secret
 
-const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
-mongoose.connect('mongodb+srv://Allstar:ASCICMS@cluster0.tr7jl.mongodb.net/Strawberry_Monitoring', {
+dotenv.config();
+mongoose.connect(process.env.DB_connection, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useCreateIndex: true
@@ -60,7 +63,7 @@ app.post('/api/change-password', async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
 	const { email, username, password } = req.body
-	const user = await User.findOne({ username }).lean() 
+	const user = await User.findOne({ email, username }).lean() 
 
 	if (!user) {
 		return res.json({ status: 'error', error: 'Invalid username/password' })
