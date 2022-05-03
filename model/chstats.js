@@ -9,8 +9,8 @@ const CoolhouseSchema = new mongoose.Schema(
         soil_moisture: {type: String, required: true},
         pH_lvl: {type: String, required: true},
         humidity_lvl: {type: String, required: true},
-        date: {type: Date, required: true},
-        time: {type: Date, required: true},
+        date: {type: String, required: true},
+        time: {type: String, required: false},
 	},
 	{ collection: 'Coolhouse_Status' }
 )
