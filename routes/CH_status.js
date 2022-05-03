@@ -6,42 +6,9 @@ const JWT_SECRET = process.env.Secret
 
 // Start Coolhouse Status
 
-
-/*router.post('/api/chstatus', async (req, res) => {
-	const { ch_temp, r_temp, water_level, soil_temp, soil_moisture, pH_lvl, humidity_lvl, date, time } = req.body
-	const coolhouse = await chstats.findOne({ ch_temp, r_temp, water_level, soil_temp, soil_moisture, pH_lvl, humidity_lvl, date, time }).lean() 
-
-	if (!coolhouse) {
-		return res.json({ status: 'error', error: 'Invalid data' })
-	}
-
-	//if (bcrypt.compare(password, user.password)) {
-		// the username, password combination is successful
-
-		const token = jwt.sign(
-			{
-				id: user._id,
-                ch_temp: chstats.ch_temp, 
-                r_temp: chstats.r_temp, 
-                water_level: chstats.water_level, 
-                soil_temp: chstats.soil_temp, 
-                soil_moisture: chstats.soil_moisture, 
-                pH_lvl: chstats.pH_lvl, 
-                humidity_lvl: chstats.humidity_lvl, 
-                date: chstats.date, 
-                time: chstats.time
-			
-			},
-			JWT_SECRET
-		)
-
-		return res.json({ status: 'ok', data: token })
-	
-}) */
-
 router.post('/api/chstatus', async (req, res) => {
 	const { ch_temp, r_temp, water_level, soil_temp, soil_moisture, pH_lvl, humidity_lvl, date } = req.body
-	const coolhouse = await Coolhouse.findOne({ ch_temp, r_temp, water_level, soil_temp, soil_moisture, pH_lvl, humidity_lvl, date }).lean() 
+	//const coolhouse = await Coolhouse.findOne({ ch_temp, r_temp, water_level, soil_temp, soil_moisture, pH_lvl, humidity_lvl, date }).lean() 
 
 
 	if (!ch_temp || typeof ch_temp !== 'string') {
@@ -71,7 +38,7 @@ router.post('/api/chstatus', async (req, res) => {
     if (!date || typeof date !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid date' })
 	}
-    //if (!time || typeof time !== 'date') {
+    //if (!coolhouse || typeof time !== 'date') {
 	//	return res.json({ status: 'error', error: 'Invalid time' })
 	//}
 
@@ -99,5 +66,8 @@ router.post('/api/chstatus', async (req, res) => {
 	res.json({ status: 'ok' })
 })
 
+router.get('/api/chstatus', (req,res) => {
+    res.send(Coolhouse);
+});
 // End Coolhouse status
 module.exports = router;
