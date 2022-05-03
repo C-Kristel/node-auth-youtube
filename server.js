@@ -13,6 +13,7 @@ require('dotenv/config')
 //routes
 const UserRoute = require('./routes/User');
 const chRoute = require('./routes/CH_status');
+const chActiveStatus = require('./routes/Coolhouse');
 dotenv.config();
 
 mongoose.connect(process.env.DB_connection, {
@@ -30,6 +31,7 @@ app.use(express.json());
 //route middlewares
 app.use('/', UserRoute);
 app.use('/', chRoute);
+app.use('/', chActiveStatus);
 app.use(bodyParser.json())
 
 app.listen(9999, () => {

@@ -35,12 +35,6 @@ router.post('/api/chstatus', async (req, res) => {
     if (!humidity_lvl || typeof humidity_lvl !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid humidity level' })
 	}
-    if (!date || typeof date !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid date' })
-	}
-    //if (!coolhouse || typeof time !== 'date') {
-	//	return res.json({ status: 'error', error: 'Invalid time' })
-	//}
 
 	try {
 		const response = await Coolhouse.create({
