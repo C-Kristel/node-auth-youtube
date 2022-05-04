@@ -2,18 +2,18 @@ const mongoose = require('mongoose')
 
 const PeltierSchema = new mongoose.Schema(
 	{
-		peltierFans: { 
-			type: Boolean, 
+		peltierStatus: { 
+			type: String, 
 			required: true },
         peltierNum: {
 			type: String,
 			required:true
 		},
         miniFans: {
-            type: Boolean,
+            type: String,
             required: true
         },
-        minimFanNum: {
+        miniFanNum: {
             type: String,
 			required:true
         }
