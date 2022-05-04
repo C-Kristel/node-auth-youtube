@@ -1,8 +1,11 @@
 {
   "name": "node-auth",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
+  "engines":{
+    "node": "14.17.2"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
