@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Coolhouse = require('../model/chstats')
+//const verify = require('./token');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.Secret
@@ -60,8 +61,35 @@ router.post('/api/chstatus', async (req, res) => {
 	res.json({ status: 'ok' })
 })
 
-router.get('/api/chstatus', (req,res) => {
-    res.send(Coolhouse);
+//Get all routes
+router.get('/api/chstatus/all', async (req, res) => {
+    const findCoolhouseStatus = await Coolhouse.find()
+    if (findCoolhouseStatus != 0) {
+        res.json(findCoolhouseStatus);
+    } else {
+        return res.status(400).json({ 'error': 'DB is empty' });
+    }
+
 });
+
+//Get specific Contacts
+router.get('/api/chstatus/get/:id', async (req, res) => {
+    const q = await Coolhouse.findById({
+        _id: req.params.id
+    });
+    res.json(q);
+});
+
+//Delete Contact
+router.delete('/api/chstatus/delete/:id', async (req, res) => {
+    const result = await Coolhouse.findByIdAndDelete({
+        _id: req.params.id
+    });
+    res.json(result);
+});
+
+//router.get('/api/chstatus', (req,res) => {
+//    res.send(Coolhouse);
+//});
 // End Coolhouse status
 module.exports = router;
