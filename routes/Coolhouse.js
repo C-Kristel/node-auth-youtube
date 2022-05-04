@@ -5,7 +5,7 @@ const Activestat = require('../model/Coolhouse')
 router.post('/api/Coolhouse', async (req, res) => {
 	const { ActiveStatus } = req.body
 
-	if (!ActiveStatus || typeof ActiveStatus !== 'boolean') {
+	if (!ActiveStatus || typeof ActiveStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	} 
 
