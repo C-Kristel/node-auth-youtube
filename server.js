@@ -10,7 +10,6 @@ const dotenv = require('dotenv')
 require('dotenv/config')
 const app = express();
 
-
 //routes
 const UserRoute = require('./routes/User');
 const chRoute = require('./routes/CH_status');
