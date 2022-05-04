@@ -15,6 +15,9 @@ const UserRoute = require('./routes/User');
 const chRoute = require('./routes/CH_status');
 const chActiveStatus = require('./routes/Coolhouse');
 const ledStatus = require('./routes/led');
+const peltierStatus = require('./routes/peltier');
+const vent = require('./routes/vent');
+const waterPump = require('./routes/waterPump');
 dotenv.config();
 
 mongoose.connect(process.env.DB_connection, {
@@ -34,6 +37,9 @@ app.use('/', UserRoute);
 app.use('/', chRoute);
 app.use('/', chActiveStatus);
 app.use('/', ledStatus);
+app.use('/', peltierStatus);
+app.use('/', vent);
+app.use('/', waterPump);
 app.use(bodyParser.json())
 
 app.listen(9999, () => {
