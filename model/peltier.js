@@ -6,7 +6,7 @@ const PeltierSchema = new mongoose.Schema(
 			type: Boolean, 
 			required: true },
         peltierNum: {
-			type: [String],
+			type: String,
 			required:true
 		},
         miniFans: {
@@ -14,7 +14,7 @@ const PeltierSchema = new mongoose.Schema(
             required: true
         },
         minimFanNum: {
-            type: [String],
+            type: String,
 			required:true
         }
 	},

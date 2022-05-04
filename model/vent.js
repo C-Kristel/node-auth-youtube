@@ -6,7 +6,7 @@ const VentSchema = new mongoose.Schema(
 			type: Boolean, 
 			required: true },
 		ventNum: {
-			type: [String],
+			type: String,
 			required:true
 		},
 	},
