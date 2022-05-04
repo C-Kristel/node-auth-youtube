@@ -7,7 +7,7 @@ const peltier = require('../model/peltier')
 router.post('/api/pel1', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -15,7 +15,7 @@ router.post('/api/pel1', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -54,7 +54,7 @@ router.get('/api/pel1/get/:id', async (req, res) => {
 router.post('/api/pel2', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -62,7 +62,7 @@ router.post('/api/pel2', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -101,7 +101,7 @@ router.get('/api/pel2/get/:id', async (req, res) => {
 router.post('/api/pel3', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -109,7 +109,7 @@ router.post('/api/pel3', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -148,7 +148,7 @@ router.get('/api/pel3/get/:id', async (req, res) => {
 router.post('/api/pel4', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -156,7 +156,7 @@ router.post('/api/pel4', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -195,7 +195,7 @@ router.get('/api/pel4/get/:id', async (req, res) => {
 router.post('/api/pel5', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -203,7 +203,7 @@ router.post('/api/pel5', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -242,7 +242,7 @@ router.get('/api/pel5/get/:id', async (req, res) => {
 router.post('/api/pel6', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -250,7 +250,7 @@ router.post('/api/pel6', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -289,7 +289,7 @@ router.get('/api/pel6/get/:id', async (req, res) => {
 router.post('/api/pel7', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -297,7 +297,7 @@ router.post('/api/pel7', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
@@ -336,7 +336,7 @@ router.get('/api/pel7/get/:id', async (req, res) => {
 router.post('/api/pel8', async (req, res) => {
 	const { peltierStatus, peltierNum, miniFans, miniFanNum } = req.body
 
-	if (!peltierStatus || typeof peltierStatus !== 'boolean') {
+	if (!peltierStatus || typeof peltierStatus !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 	
@@ -344,7 +344,7 @@ router.post('/api/pel8', async (req, res) => {
 		return res.json({ status: 'error', error: 'Invalid Number' })
 	}
 
-    if (!miniFans || typeof miniFans !== 'boolean') {
+    if (!miniFans || typeof miniFans !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid' })
 	}
 
