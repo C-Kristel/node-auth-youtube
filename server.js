@@ -7,8 +7,9 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const app = express();
 require('dotenv/config')
+const app = express();
+
 
 //routes
 const UserRoute = require('./routes/User');
