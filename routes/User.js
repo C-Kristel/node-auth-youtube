@@ -108,5 +108,12 @@ router.post('/api/register', async (req, res) => {
 	res.json({ status: 'ok' })
 })
 
+//Get specific Contacts
+router.get('/api/user/get/:id', async (req, res) => {
+    const q = await User.findById({
+        _id: req.params.id
+    });
+    res.json(q);
+});
 // End User
 module.exports = router;
