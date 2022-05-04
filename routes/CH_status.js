@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Coolhouse = require('../model/chstats')
-//const verify = require('./token');
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.Secret
@@ -72,7 +71,7 @@ router.get('/api/chstatus/all', async (req, res) => {
 
 });
 
-//Get specific Contacts
+//Get specific Coolhouse status by id
 router.get('/api/chstatus/get/:id', async (req, res) => {
     const q = await Coolhouse.findById({
         _id: req.params.id
@@ -80,7 +79,7 @@ router.get('/api/chstatus/get/:id', async (req, res) => {
     res.json(q);
 });
 
-//Delete Contact
+//Delete coolhouse status
 router.delete('/api/chstatus/delete/:id', async (req, res) => {
     const result = await Coolhouse.findByIdAndDelete({
         _id: req.params.id

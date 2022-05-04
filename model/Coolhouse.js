@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const CHSchema = new mongoose.Schema(
 	{
-		ActiveStatus: { type: Boolean },
+		ActiveStatus: { 
+			type: String
+		},
 	},
 	{ collection: 'Coolhouse' }
 )

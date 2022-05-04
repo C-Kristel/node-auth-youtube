@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 const LEDSchema = new mongoose.Schema(
 	{
-		led: { 
+		ledStatus: { 
 			type: Boolean, 
 			required: true },
 		ledNum: {
-			type: [String],
+			type: String,
 			required:true
 		},
 	},
