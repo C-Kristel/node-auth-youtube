@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const WaterSchema = new mongoose.Schema(
 	{
 		waterPump: { 
-			type: Boolean, 
+			type: String, 
 			required: true }
 	},
 	{ collection: 'PumpStatus' }

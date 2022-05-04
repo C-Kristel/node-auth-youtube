@@ -3,7 +3,6 @@ const led = require('../model/led')
 
 
 // LED1
-
 router.post('/api/led1', async (req, res) => {
 	const { ledStatus, ledNum } = req.body
 

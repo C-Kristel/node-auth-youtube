@@ -45,13 +45,11 @@ router.post('/api/chstatus', async (req, res) => {
             soil_moisture, 
             pH_lvl, 
             humidity_lvl, 
-            date, 
-            //time
+            date
 		})
 		console.log('Coolhouse status saved successfully: ', response)
 	} catch (error) {
 		if (error.code === 400) {
-			// duplicate key
 			return res.json({ status: 'error', error: 'Error' })
 		}
 		throw error
