@@ -25,8 +25,31 @@ router.post('/api/Coolhouse', async (req, res) => {
 	res.json({ status: 'ok' })
 })
 
-router.get('/api/Coolhouse', (req,res) => {
-    res.send(Coolhouse);
+//Get all routes
+router.get('/api/Coolhouse/all', async (req, res) => {
+    const findCoolhouseActiveStatus = await Activestat.find()
+    if (findCoolhouseActiveStatus != 0) {
+        res.json(findCoolhouseActiveStatus);
+    } else {
+        return res.status(400).json({ 'error': 'DB is empty' });
+    }
+
+});
+
+//Get specific Contacts
+router.get('/api/Coolhouse/get/:id', async (req, res) => {
+    const q = await Activestat.findById({
+        _id: req.params.id
+    });
+    res.json(q);
+});
+
+//Delete Contact
+router.delete('/api/Coolhouse/delete/:id', async (req, res) => {
+    const result = await Activestat.findByIdAndDelete({
+        _id: req.params.id
+    });
+    res.json(result);
 });
 // End Coolhouse Active status
 module.exports = router;
